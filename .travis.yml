@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker 
+
+before_install:
+  - docker build -t loki194/docker-react-continuous-integraion -f Dockerfile.dev .
+script:
+  - docker run loki194/docker-react-continuous-integraion npm run test -- --coverage
